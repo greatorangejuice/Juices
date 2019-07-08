@@ -4,11 +4,6 @@ import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styles: [`
-    input.ng-invalid.ng-touched {
-      border: 1px solid red;
-    }
-  `]
 })
 export class AppComponent {
   answers = [{
@@ -18,6 +13,9 @@ export class AppComponent {
     type: 'no',
     text: 'Нет'
   }];
+
+  defaultAnswer = 'no';
+  defaultCountry = 'by';
 
   submitForm(form: NgForm) {
     console.log(form);

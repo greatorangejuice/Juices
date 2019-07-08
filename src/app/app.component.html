@@ -1,6 +1,6 @@
-<div class="form">
-  <form (ngSubmit)="submitForm(form)" #form="ngForm" class="form-center">
-    <div class="form-group">
+<div class="col-xs-8 col-xs-offset-2">
+  <form (ngSubmit)="submitForm(form)" #form="ngForm">
+    <div class="form-group" [ngClass]="{'is-invalid': email.invalid && email.touched}">
       <label>Email</label>
       <input
         type="text"
@@ -9,9 +9,11 @@
         name="email"
         required
         email
+        #email="ngModel"
       >
+      <p *ngIf="email.invalid && email.touched">Введите корректный email</p>
     </div>
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'is-invalid': pass.invalid && pass.touched}">
       <label>Пароль</label>
       <input
         type="password"
@@ -19,17 +21,19 @@
         ngModel
         name="pass"
         required
+        #pass="ngModel"
       >
+      <p *ngIf="pass.invalid && pass.touched">Пароль не должен быть пустым</p>
     </div>
     <div class="form-group">
       <label>Выберите страну</label>
       <select
         class="form-control"
-        ngModel
+        [ngModel]="defaultCountry"
         name="country"
       >
         <option value="ru">Россия</option>
-        <option value="by">Белоруссия</option>
+        <option value="by">Беларусь</option>
         <option value="ua">Украина</option>
       </select>
     </div>
@@ -38,7 +42,7 @@
         <input
           type="radio"
           [value]="ans.type"
-          ngModel
+          [ngModel]="defaultAnswer"
           name="answer"
           required
         > {{ans.text}}
