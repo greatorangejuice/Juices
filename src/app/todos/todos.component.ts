@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Todo} from '../app.component';
+import {LogService} from '../log.service';
 
 @Component({
   selector: 'app-todos',
@@ -12,9 +13,10 @@ export class TodosComponent implements OnInit {
 
   title = 'Todos Application'
 
-  constructor() { }
+  constructor(private logService: LogService) { }
 
   ngOnInit() {
+    this.logService.getLog();
   }
 
 }
