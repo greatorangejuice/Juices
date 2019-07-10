@@ -35,7 +35,6 @@ export class ReactiveFormComponent implements OnInit {
   }
   // FIX error object!
   checkLength(control: FormControl) {
-    console.log(control.value.lenght);
     if (control.value.lenght <= this.minPassLength) {
       return {
         ['lengthError']: true,

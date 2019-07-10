@@ -6,12 +6,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TdFormComponent } from './td-form/td-form.component';
+import { TodosComponent } from './todos/todos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReactiveFormComponent,
-    TdFormComponent
+    TdFormComponent,
+    TodosComponent
   ],
   imports: [
     BrowserModule,
