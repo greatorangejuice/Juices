@@ -17,12 +17,12 @@ export class ReactiveFormComponent implements OnInit {
   }];
 
   form: FormGroup;
-  minPassLength: 5;
+  minPassLength = 5;
 
   ngOnInit(): void {
     this.form = new FormGroup({
       user: new FormGroup({
-        email: new FormControl('', [Validators.required, Validators.email]),
+        email: new FormControl('', [Validators.required, Validators.email], this.checkForEmail),
         pass: new FormControl('', [Validators.required, this.checkLength.bind(this)]),
       }),
       country: new FormControl('by'),
@@ -35,11 +35,27 @@ export class ReactiveFormComponent implements OnInit {
   }
   // FIX error object!
   checkLength(control: FormControl) {
+    console.log(control.value.lenght);
     if (control.value.lenght <= this.minPassLength) {
       return {
-        'lenghtError': true,
+        ['lengthError']: true,
       };
     }
     return null;
   }
+
+  checkForEmail(control: FormControl): Promise<any> {
+    return new Promise(((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === 'test@mail.ru') {
+          resolve({
+            ['emailIsUsed']: true,
+          });
+        } else {
+          resolve(null);
+        }
+      }, 3000);
+    }));
+  }
+
 }
