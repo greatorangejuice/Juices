@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Todo} from '../app.component';
-import {LogService} from '../log.service';
+import {Component, OnInit} from '@angular/core';
+import {TodoService} from '../todo.service';
 
 @Component({
   selector: 'app-todos',
@@ -9,14 +8,24 @@ import {LogService} from '../log.service';
 })
 export class TodosComponent implements OnInit {
 
-  @Input() todos: Todo[] = [];
+  title = 'Todos Application';
+  private loading = true;
 
-  title = 'Todos Application'
+  onChange(id: number): void {
+    this.todoService.onToggle(id);
+  }
 
-  constructor(private logService: LogService) { }
+  removeTask(id: number): void {
+    this.todoService.removeTask(id);
+  }
+
+  constructor(private todoService: TodoService) {
+  }
 
   ngOnInit() {
-    this.logService.getLog();
+    this.todoService.fetchTasks().subscribe( () => {
+      this.loading = false;
+    });
   }
 
 }

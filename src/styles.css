@@ -2,3 +2,8 @@ form {
   width: 500px;
   margin: auto;
 }
+
+.done {
+  color: #238008;
+  font-size: 25px;
+}

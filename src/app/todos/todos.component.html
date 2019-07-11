@@ -1,1 +1,20 @@
-<h4>{{title}}</h4>
+<div class="content" *ngIf="!loading">
+  <h4>{{title}}</h4>
+  <p class="test">Special text for test styles</p>
+  <div *ngIf="todoService.tasks.length; else noTasks">
+    <ul class="list-group">
+      <li class="list-group-item task" *ngFor="let task of todoService.tasks; let i = index">
+        <span [ngClass]="{'text-success': task.completed}">
+      <input type="checkbox" [checked]="task.completed" (change)="onChange(task.id)">
+      <strong class="margin-left-10">{{i + 1}}</strong><span class="margin-left-5">{{task.title}}</span>
+    </span>
+        <button (click)="removeTask(task.id)">×</button>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noTasks>
+    <p style="text-align: center">No tasks</p>
+  </ng-template>
+  <app-messages></app-messages>
+</div>
+<p *ngIf="loading">Loading...</p>
