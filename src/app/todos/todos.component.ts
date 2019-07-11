@@ -17,15 +17,18 @@ export class TodosComponent implements OnInit {
 
   removeTask(id: number): void {
     this.todoService.removeTask(id);
+    this.todoService.hideMessage();
   }
 
   constructor(private todoService: TodoService) {
   }
 
   ngOnInit() {
-    this.todoService.fetchTasks().subscribe( () => {
-      this.loading = false;
-    });
+   setTimeout(() => {
+     this.todoService.fetchTasks().subscribe( () => {
+       this.loading = false;
+     });
+   }, 1000);
   }
 
 }

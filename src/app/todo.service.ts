@@ -16,6 +16,7 @@ export interface Todo {
 export class TodoService {
   public tasks: Todo[] = [];
   messages = [];
+  isDrawedMessage = true;
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +24,6 @@ export class TodoService {
     return this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos/?_limit=15')
       .pipe(tap((tasks) => {this.tasks = tasks; }));
   }
-
 
   onToggle(id: number) {
     const idx = this.tasks.findIndex( task => task.id === id );
@@ -35,4 +35,16 @@ export class TodoService {
     this.messages.push(this.tasks[idx].title);
     this.tasks = this.tasks.filter(task => task.id !== id );
   }
+  // Пофиксить таймауты. Наверно лучше повесить удаление на li, а не на весь контейнер.
+  hideMessage(): void {
+    setTimeout( () => {
+      this.isDrawedMessage = false;
+      this.messages = [];
+    }, 3000 );
+
+    setTimeout( () => {
+      this.isDrawedMessage = true;
+    }, 3500 );
+  }
+
 }

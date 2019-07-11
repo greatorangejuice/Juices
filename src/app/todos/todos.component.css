@@ -33,3 +33,14 @@ button:hover{
 .margin-left-5 {
   margin-left: 5px;
 }
+
+.center,
+.loader {
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  height: 500px;
+  align-items: center;
+}
