@@ -1,0 +1,5 @@
+<div *ngIf="todoService.messages.length">
+  <div *ngFor="let message of todoService.messages">
+    <ul><li class="alert alert-secondary">"{{message}}" was deleted</li></ul>
+  </div>
+</div>
