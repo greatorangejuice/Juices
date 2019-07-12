@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TodoService} from '../todo.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-todos',
@@ -20,7 +21,11 @@ export class TodosComponent implements OnInit {
     this.todoService.hideMessage();
   }
 
-  constructor(private todoService: TodoService) {
+  goBack(): void {
+    this.location.back();
+  }
+
+  constructor(private todoService: TodoService, private location: Location) {
   }
 
   ngOnInit() {
@@ -28,7 +33,7 @@ export class TodosComponent implements OnInit {
      this.todoService.fetchTasks().subscribe( () => {
        this.loading = false;
      });
-   }, 1000);
+   }, 5000);
   }
 
 }

@@ -55,3 +55,49 @@ button:hover{
   width: 700px;
   height: 1000px;
 }
+
+
+.container-loader{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.ball{
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  float: left;
+  margin-left: 20px;
+  animation: move1 1.45s linear infinite;
+}
+
+.ball:nth-child(1){
+  background: var(--dark);
+  animation-delay: 0s;
+}
+
+.ball:nth-child(2){
+  background: var(--dark);
+  animation-delay: 0.25s;
+}
+
+.ball:nth-child(3){
+  background: var(--dark);
+  animation-delay: 0.5s;
+}
+
+.ball:nth-child(4){
+  animation-delay: 0.75s;
+  background: var(--dark);
+}
+
+@keyframes move1{
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-25px);
+  }
+}

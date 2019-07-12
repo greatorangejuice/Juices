@@ -5,6 +5,7 @@ import {TdFormComponent} from './td-form/td-form.component';
 import {TodosComponent} from './todos/todos.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/reactive', pathMatch: 'full' },
   { path: 'reactive', component: ReactiveFormComponent },
   { path: 'td', component: TdFormComponent },
   { path: 'todos', component: TodosComponent },

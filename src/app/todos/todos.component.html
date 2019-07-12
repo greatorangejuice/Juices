@@ -2,6 +2,7 @@
   <div class="main">
     <h4>{{title}}</h4>
     <p class="test">Special text for test styles</p>
+    <button (click)="goBack()">Back</button>
     <div *ngIf="todoService.tasks.length; else noTasks">
       <ul class="list-group">
         <li class="list-group-item task" *ngFor="let task of todoService.tasks; let i = index">
@@ -20,29 +21,35 @@
   </div>
   <app-messages></app-messages>
 </div>
-<div *ngIf="loading" class="loader">
-  <div class="spinner-grow text-primary" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-  <div class="spinner-grow text-secondary" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-  <div class="spinner-grow text-success" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-  <div class="spinner-grow text-danger" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-  <div class="spinner-grow text-warning" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-  <div class="spinner-grow text-info" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-<!--  <div class="spinner-grow text-light" role="status">-->
+<div *ngIf="loading"  class="container-loader">
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+</div>
+<!--<div *ngIf="loading" class="loader">-->
+<!--  <div class="spinner-grow text-primary" role="status">-->
 <!--    <span class="sr-only">Loading...</span>-->
 <!--  </div>-->
-  <div class="spinner-grow text-dark" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-</div>
+<!--  <div class="spinner-grow text-secondary" role="status">-->
+<!--    <span class="sr-only">Loading...</span>-->
+<!--  </div>-->
+<!--  <div class="spinner-grow text-success" role="status">-->
+<!--    <span class="sr-only">Loading...</span>-->
+<!--  </div>-->
+<!--  <div class="spinner-grow text-danger" role="status">-->
+<!--    <span class="sr-only">Loading...</span>-->
+<!--  </div>-->
+<!--  <div class="spinner-grow text-warning" role="status">-->
+<!--    <span class="sr-only">Loading...</span>-->
+<!--  </div>-->
+<!--  <div class="spinner-grow text-info" role="status">-->
+<!--    <span class="sr-only">Loading...</span>-->
+<!--  </div>-->
+<!--&lt;!&ndash;  <div class="spinner-grow text-light" role="status">&ndash;&gt;-->
+<!--&lt;!&ndash;    <span class="sr-only">Loading...</span>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--  <div class="spinner-grow text-dark" role="status">-->
+<!--    <span class="sr-only">Loading...</span>-->
+<!--  </div>-->
+<!--</div>-->
