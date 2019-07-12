@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, DoCheck } from '@angular/core';
 import {TodoService} from '../todo.service';
 
 @Component({
@@ -6,10 +6,12 @@ import {TodoService} from '../todo.service';
   templateUrl: './messages.component.html',
   styles: []
 })
-export class MessagesComponent implements OnInit {
+export class MessagesComponent implements DoCheck {
 
   constructor(private todoService: TodoService) { }
 
-  ngOnInit() {
+  ngDoCheck(): void {
+    console.log('destroy');
+    this.todoService.isDrawedMessage = true;
   }
 }

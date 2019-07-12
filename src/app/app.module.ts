@@ -8,7 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { TdFormComponent } from './td-form/td-form.component';
 import { TodosComponent } from './todos/todos.component';
 import { MessagesComponent } from './messages/messages.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor} from './auth.interceptor';
+// import {AuthInterceptor} from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,11 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

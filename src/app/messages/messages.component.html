@@ -1,6 +1,11 @@
-<div *ngIf="todoService.messages.length && todoService.isDrawedMessage">
+<div class="messages">
   <h4 class="center">Messages</h4>
-  <div *ngFor="let message of todoService.messages">
-    <ul><li class="alert alert-secondary">"{{message}}" was deleted</li></ul>
+  <hr>
+  <div *ngIf="todoService.messages.length && todoService.isDrawedMessage" class="message">
+    <div *ngFor="let message of todoService.messages">
+      <ul>
+        <li class="alert alert-secondary">"{{message}}" was deleted</li>
+      </ul>
+    </div>
   </div>
 </div>
