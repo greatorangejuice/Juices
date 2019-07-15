@@ -33,7 +33,7 @@ export class TodosComponent implements OnInit {
      this.todoService.fetchTasks().subscribe( () => {
        this.loading = false;
      });
-   }, 5000);
+   }, 500);
   }
 
 }

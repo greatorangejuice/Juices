@@ -11,7 +11,7 @@ export class MessagesComponent implements DoCheck {
   constructor(private todoService: TodoService) { }
 
   ngDoCheck(): void {
-    console.log('destroy');
+    console.log('isDrawedMessage = true');
     this.todoService.isDrawedMessage = true;
   }
 }

@@ -10,7 +10,7 @@ import { TodosComponent } from './todos/todos.component';
 import { MessagesComponent } from './messages/messages.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth.interceptor';
-// import {AuthInterceptor} from './auth.interceptor';
+import {VideosComponent} from './videos/videos.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import {AuthInterceptor} from './auth.interceptor';
     ReactiveFormComponent,
     TdFormComponent,
     TodosComponent,
-    MessagesComponent
+    MessagesComponent,
+    VideosComponent
   ],
   imports: [
     BrowserModule,
