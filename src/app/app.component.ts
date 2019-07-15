@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {AuthGuard} from './auth-guard.service';
+import {AuthService} from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +8,13 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular Application';
+  constructor(private auth: AuthService){}
+
+  changeAuthStatus(status: string): void {
+    if (status === 'login') {
+      this.auth.logIn();
+    } else {
+      this.auth.logOut();
+    }
+  }
 }

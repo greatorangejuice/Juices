@@ -11,6 +11,8 @@ import { MessagesComponent } from './messages/messages.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth.interceptor';
 import {VideosComponent} from './videos/videos.component';
+import {AuthService} from './auth.service';
+import {AuthGuard} from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import {VideosComponent} from './videos/videos.component';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }],
+  },
+    AuthService,
+    AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

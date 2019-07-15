@@ -4,13 +4,14 @@ import {ReactiveFormComponent} from './reactive-form/reactive-form.component';
 import {TdFormComponent} from './td-form/td-form.component';
 import {TodosComponent} from './todos/todos.component';
 import {VideosComponent} from './videos/videos.component';
+import {AuthGuard} from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/reactive', pathMatch: 'full' },
   { path: 'reactive', component: ReactiveFormComponent },
   { path: 'td', component: TdFormComponent },
   { path: 'todos', component: TodosComponent },
-  { path: 'videos', component: VideosComponent },
+  { path: 'videos', component: VideosComponent, canActivate: [AuthGuard] },
 ];
 @NgModule({
   exports: [ RouterModule ],
