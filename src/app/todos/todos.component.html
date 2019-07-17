@@ -1,6 +1,6 @@
 <div class="content" *ngIf="!loading">
   <div class="main">
-    <h4>{{title}}</h4>
+    <h4 appColor>{{title}}</h4>
     <p class="test">Special text for test styles</p>
     <button (click)="goBack()">Back</button>
     <div *ngIf="todoService.tasks.length; else noTasks">

@@ -10,8 +10,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/reactive', pathMatch: 'full' },
   { path: 'reactive', component: ReactiveFormComponent },
   { path: 'td', component: TdFormComponent },
-  { path: 'todos', component: TodosComponent },
   { path: 'videos', component: VideosComponent, canActivate: [AuthGuard] },
+  { path: 'todos', component: TodosComponent },
+
 ];
 @NgModule({
   exports: [ RouterModule ],
