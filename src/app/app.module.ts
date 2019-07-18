@@ -10,7 +10,7 @@ import {AuthInterceptor} from './auth.interceptor';
 import {VideosComponent} from './videos/videos.component';
 import {AuthService} from './auth.service';
 import {AuthGuard} from './auth-guard.service';
-import {TodosModule} from './todos/todos.module';
+// import {TodosModule} from './todos/todos.module';
 import {SharedModule} from './shared/shared.module';
 
 @NgModule({
@@ -26,7 +26,7 @@ import {SharedModule} from './shared/shared.module';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    TodosModule,
+    // TodosModule,
     SharedModule
   ],
   providers: [{

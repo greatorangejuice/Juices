@@ -3,11 +3,11 @@ import {RouterModule, Routes} from '@angular/router';
 import {TodosComponent} from './todos.component';
 
 const todosRoutes: Routes = [
-  { path: 'todos', component: TodosComponent }
+  { path: '', component: TodosComponent }
 ];
 
 @NgModule({
   exports: [ RouterModule ],
-  imports: [ RouterModule.forRoot(todosRoutes) ],
+  imports: [ RouterModule.forChild(todosRoutes) ],
 })
 export class TodosRoutingModule {}
