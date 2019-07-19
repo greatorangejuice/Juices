@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectorRef, Component} from '@angular/core';
 import {AuthService} from './auth.service';
 
 @Component({
@@ -7,7 +7,13 @@ import {AuthService} from './auth.service';
 })
 export class AppComponent {
   title = 'Angular Application';
-  constructor(private auth: AuthService) {}
+  answer = 'no';
+  constructor(private auth: AuthService, cd: ChangeDetectorRef) {
+    setTimeout( () => {
+      // cd.detach();
+      this.answer = 'yes';
+    }, 3000 );
+  }
 
   changeAuthStatus(status: string): void {
     if (status === 'login') {
