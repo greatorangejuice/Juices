@@ -22,7 +22,7 @@ export class TodoService {
 
   fetchTasks(): Observable<any> {
     return this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos/', {
-      params: new HttpParams().set('_limit', '15'),
+      // params: new HttpParams().set('_limit', '15'),
     })
       .pipe(tap((tasks) => {this.tasks = tasks; }));
 

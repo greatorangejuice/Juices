@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {ReactiveFormComponent} from './reactive-form/reactive-form.component';
 import {TdFormComponent} from './td-form/td-form.component';
 import {VideosComponent} from './videos/videos.component';
@@ -15,7 +15,9 @@ const routes: Routes = [
 ];
 @NgModule({
   exports: [ RouterModule ],
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+  }) ],
 })
 
 export class AppRoutingModule {}
