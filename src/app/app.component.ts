@@ -7,7 +7,7 @@ import {AuthService} from './auth.service';
 })
 export class AppComponent {
   title = 'Angular Application';
-  constructor(private auth: AuthService){}
+  constructor(private auth: AuthService) {}
 
   changeAuthStatus(status: string): void {
     if (status === 'login') {
